@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 //get port number enviroment setting
-require('dotenv').config({path:'./config.env'})
+require('dotenv').config();
 const port = process.env.PORT || 3000;
 
 const bodyParser = require("body-parser");
@@ -20,7 +20,7 @@ app.get("/", (req, res)=>{
 });
 
 app.use("/products", productRoute);
-app.use("/customers", productRoute);
+//app.use("/customers", productRoute);
 app.listen(port, () => {
   console.log("App started at port: " + port);
 });

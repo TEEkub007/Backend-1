@@ -1,13 +1,13 @@
 const express = require('express');
-const app  = express.Router();
-const controller = require('../controllers/product.controller.js')
+const app = express.Router();
+const controller = require('../controllers/product.controller');
 
-// match GET localhost:5000/products
-app.get("/",controller.get);
-  
-  // match GET localhost:5000/products
-  app.get("/:id",controller.getById);
-  
-  app.post("/",controller.create);
+// define routes here
+app.get("/", controller.get);
+app.get("/stock/equals/:stock",controller.getBystock)
+app.get("/:id",controller.getById);
+app.post("/", controller.create);
+app.put("/:id", controller.update);
+app.delete("/:id", controller.delete);
 
 module.exports = app;
